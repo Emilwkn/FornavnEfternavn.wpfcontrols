@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1000">
     <Grid>
-        <GroupBox Header="Film (Ny)" HorizontalAlignment="Left" Height="auto" Margin="10,10,10,10" VerticalAlignment="Top" Width="auto">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="Film (Ny)" Grid.Column="0" HorizontalAlignment="Left" Height="auto" Margin="10,10,10,10" VerticalAlignment="Top" Width="auto">
             <Grid>
                 <!--Row and Colum-->
                 <Grid.ColumnDefinitions>
@@ -21,6 +25,7 @@
                     <RowDefinition x:Name="FilmNyRow3" Height="1*"></RowDefinition>
                     <RowDefinition x:Name="FilmNyRow4" Height="50"></RowDefinition>
                     <RowDefinition x:Name="FilmNyRow5" Height="1*"></RowDefinition>
+                    <RowDefinition x:Name="FilmNyRow6" Height="auto"></RowDefinition>
                 </Grid.RowDefinitions>
                 <!---->
 
@@ -64,7 +69,65 @@
                     <ComboBoxItem>Action</ComboBoxItem>
                     <ComboBoxItem>Romance</ComboBoxItem>
                 </ComboBox>
+                <!---->
+                
+                <!--Button-->
+                <Button Content="Gem" Grid.Row="6" Grid.Column="1" Margin="40,40,40,10"/>
             </Grid>
         </GroupBox>
+
+        <GroupBox Header="Alle Film" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" Height="auto" Margin="10,10,10,10">
+            <Grid>
+                <!---->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!---->
+
+                <!---->
+                <Label Content="Søg titel :" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Margin="0,10,0,0"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Grid.Row="0" Grid.Column="1"/>
+                <!---->
+
+                <!---->
+                <Label Content="Søg udg : " HorizontalAlignment="Right" Grid.Column="0" Grid.Row="1" Margin="0,10,0,0"/>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Fra" Grid.Column="0" HorizontalAlignment="Right" Margin="0,10,0,0"/>
+                    <DatePicker Grid.Column="1" Margin="0,10,0,0"/>
+
+                    <Label Content="Til" Grid.Column="2" HorizontalAlignment="Right" Margin="0,10,0,0"/>
+                    <DatePicker Grid.Column="3" Margin="0,10,0,0"/>
+                </Grid>
+                <!---->
+
+                <!---->
+                <DataGrid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Height="300" Margin="0,0,0,0" VerticalAlignment="Top" Width="250">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Titel"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Udg."></DataGridTextColumn>
+                        <DataGridTextColumn Header="Inst."></DataGridTextColumn>
+                        <DataGridTextColumn Header="Farve"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Format"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Genre"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Button Grid.Column="1" Grid.Row="3" Content="Rediger valgte" Margin="20,20,20,20"/>
+            </Grid>
+        </GroupBox>
+        <Button Content="Exit" Height="20" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Margin="20,20,20,20" Click="Button_Click"/>
     </Grid>
 </Window>
